@@ -1,0 +1,22 @@
+<?php
+$sql = "SELECT * FROM dmsanpham";
+$query = mysqli_query($dbConnect, $sql);
+?>
+<div id="menu-but" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+</div>
+<div id="menu" class="sidebar collapse navbar-collapse">
+	<h2 class="h2-bar">danh mục sản phẩm</h2>
+	<ul>
+	<?php
+		while($rows = mysqli_fetch_array($query)){
+		?>
+		<li><a href="index.php?page_layout=danhsachsp&id_dm=<?php echo $rows['id_dm']; ?>"><?php echo $rows["ten_dm"]; ?></a>
+		</li>
+		<?php
+		}
+		?>
+	</ul>
+</div>
